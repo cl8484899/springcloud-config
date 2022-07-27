@@ -6,4 +6,5 @@ spring:
     username: root
     password: 123456
 
-myconfig: abc  
+server:
+  port: 8009
