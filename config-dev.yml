@@ -1,5 +1,5 @@
 config:
-  info: abcdefg
+  info: abcdefgh
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
