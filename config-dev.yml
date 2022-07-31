@@ -1,5 +1,5 @@
 config:
-  info: 12345
+  info: 1234567
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
