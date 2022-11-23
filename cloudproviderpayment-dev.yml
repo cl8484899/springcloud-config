@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: payment8002
   application:
     name: cloud-payment-service
   datasource:
@@ -9,22 +7,16 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloudlearn?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
-
+server:
+  port: 8001
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.atguigu.springcloud.entities
-
----
-spring:
-  profiles: payment8001
-server:
-  port: 8001
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      #      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
       defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     instance-id: payment8001
@@ -43,43 +35,3 @@ hystrix:
         requestVolumeThreshold: 10
         sleepWindowInMilliseconds: 10000
         errorThresholdPercentage: 50
-
-
----
-spring:
-  profiles: payment8002
-server:
-  port: 8002
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      #      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
-      defaultZone: http://eureka7001.com:7001/eureka/
-  instance:
-    instance-id: payment8002
-    lease-renewal-interval-in-seconds: 1
-    lease-expiration-duration-in-seconds: 2
-    prefer-ip-address: true
-
----
-spring:
-  profiles: payment8003
-  cloud:
-    zookeeper:
-      connect-string: localhost:2181
-server:
-  port: 8003
-
----
-spring:
-  profiles: payment8004
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        service-name: ${spring.application.name}
-server:
-  port: 8004
