@@ -35,4 +35,9 @@ hystrix:
         requestVolumeThreshold: 10
         sleepWindowInMilliseconds: 10000
         errorThresholdPercentage: 50
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 version: 2
