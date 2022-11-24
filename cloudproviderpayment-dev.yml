@@ -40,4 +40,4 @@ management:
     web:
       exposure:
         include: "*"
-version: 2
+version: 3
