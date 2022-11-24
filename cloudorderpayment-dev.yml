@@ -29,4 +29,4 @@ hystrix:
             #feign整合hystrix 光设置Hystrix 超时没用的要配合ribbon超时
             timeoutInMilliseconds: 5000
 
-version: 1
+version: 2
