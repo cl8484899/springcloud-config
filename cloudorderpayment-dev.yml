@@ -1,1 +1,32 @@
+spring:
+  application:
+    name: cloud-order-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+server:
+  port: 80
+ribbon:
+  ReadTimeout: 11000
+  ConnectTimeout: 11000
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            #feign整合hystrix 光设置Hystrix 超时没用的要配合ribbon超时
+            timeoutInMilliseconds: 5000
+
 version: 1
